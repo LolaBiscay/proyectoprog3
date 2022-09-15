@@ -28,6 +28,51 @@ class TarjetasPeli extends Component {
     }
   }
 
+  componentDidMount(){
+    let Storage = localStorage.getItem('peliculasFavoritas')
+    let storageParseado = JSON.parse(Storage)
+    if(storageParseado !== null){
+      let esFavorita = storageParseado.includes(this.props.id) 
+      if(esFavorita) {
+        this.setState({
+          favorito:true
+        })
+      }
+    }
+  }
+
+  agregarFavoritos(id){
+    let Storage = localStorage.getItem('peliculasFavoritas')
+
+    if(Storage === null){
+      let array = [id]
+      let arrayAString = JSON.stringify(array)
+      localStorage.setItem('peliculasFavoritas', arrayAString)
+    } else {
+      let arrayParseado = JSON.parse(Storage)
+      arrayParseado.push(id)
+      let arrayAString = JSON.stringify(arrayParseado)
+      localStorage.setItem('peliculasFavoritas', arrayAString)
+    }
+
+    this.setState({
+      favorito:true
+    })
+  }
+
+  sacarFavoritos(id){
+    let Storage = localStorage.getItem('peliculasFavoritas')
+    let storageParseado = JSON.parse(Storage) 
+    let filtroStorage = storageParseado.filter(elemento => elemento !== id)
+
+    let storageAString = JSON.stringify(filtroStorage)
+
+    localStorage.setItem('peliculasFavoritas', storageAString)
+
+    this.setState({
+      favorito: false
+    })
+  }
 
   render(){
     return (
@@ -40,7 +85,8 @@ class TarjetasPeli extends Component {
             <p className={this.state.claseDescripcion}>{this.props.descripcion}</p>
 
             <div className='botonesPeli'>
-              {this.state.favoritos ? <button onClick={() => this.removeFavoritos(this.props.id)}> Sacar de Favoritos</button>: <button onClick={() => this.agregarFavoritos(this.props.id)} > Agregar a Favoritos</button> }
+              {this.state.favoritos ?
+              <button onClick={() => this.sacarFavoritos(this.props.id)}>Sacar de Favoritos</button>:<button onClick={() => this.agregarFavoritos(this.props.id)} > Agregar a Favoritos</button> }
               <button onClick={() => this.mostrarDescripcion()}> {this.state.textoDescripcion} </button>
               <Link to="/detallePeli">
                 <button> Ver detalle </button>
