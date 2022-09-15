@@ -76,7 +76,7 @@ class TarjetasPeli extends Component {
 
   render(){
     return (
-      <article className="pelicula-card">
+      <article className="pelicula1-card">
 
           <img src={`https://image.tmdb.org/t/p/w342/${this.props.image}`} alt="" />
           
