@@ -19,6 +19,7 @@
 .TarjetasPeli{
     display: flex;
     color: white;
+    
 }
 .botonVerTodoPeli{
     text-align: center;

@@ -1,8 +1,8 @@
 import React,{Component} from 'react'
 import TarjetasPeli from '../TarjetasPeli/TarjetasPeli';
 import Buscador from '../Buscador/Buscador'
-import './Peliculas.css'
 import { Link } from 'react-router-dom';
+import './Peliculas.css'
 
 
 class Peliculas extends Component {
@@ -25,14 +25,17 @@ class Peliculas extends Component {
     }
 
     buscarPeli(titulo){
+        if(titulo !== ''){
         fetch(`https://api.themoviedb.org/3/search/movie?api_key=ec7d1aeea6d41d212821b84124febd74&query=${titulo}`)
         .then(res => res.json())
         .then(data => this.setState({
             data: data.results
         }))
         .catch(err => console.log(err))
+        }
     }
     
+
   render() {
     return (
     <>

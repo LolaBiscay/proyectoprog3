@@ -10,7 +10,9 @@
     display: block;
     text-align: center;
     justify-content: center;
-    color: white
+    color: white;
+    background-color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .ocultar{
@@ -25,6 +27,7 @@
     text-decoration: none;
     color: white;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: black;
 }
 
 .botonesSerie{

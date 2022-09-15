@@ -17,11 +17,13 @@ class TarjetasPeli extends Component {
   mostrarDescripcion(){
       if(this.state.claseDescripcion === 'ocultar'){
         this.setState({
-          claseDescripcion: 'mostrar', textoDescripcion: 'Ocultar descripcion' /*como ya tengo la descrip cambio el boton para que la oculte*/
+          claseDescripcion: 'mostrar', 
+          textoDescripcion: 'Ocultar descripcion' /*como ya tengo la descrip cambio el boton para que la oculte*/
       })
     } else{
       this.setState({
-          claseDescripcion: 'ocultar', textoDescripcion: 'Ver descripcion'
+          claseDescripcion: 'ocultar', 
+          textoDescripcion: 'Ver descripcion'
       })
     }
   }
