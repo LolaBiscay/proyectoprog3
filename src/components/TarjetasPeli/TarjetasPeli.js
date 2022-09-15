@@ -81,7 +81,7 @@ class TarjetasPeli extends Component {
           <img src={`https://image.tmdb.org/t/p/w342/${this.props.image}`} alt="" />
           
           <div className='contenido'>
-            <h1><Link className='TituloPeli' to={`/detalle/${this.props.id}`}> {this.props.name}</Link></h1>
+            <h1><Link className='TituloPeli' to={`/detallePeli/${this.props.id}`}> {this.props.name}</Link></h1>
             <p className={this.state.claseDescripcion}>{this.props.descripcion}</p>
 
             <div className='botonesPeli'>

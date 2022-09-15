@@ -9,6 +9,7 @@ import SeriesPopulares from './components/SeriesPopulares/SeriesPopulares'
 import DetallePeli from './components/DetallePeli/DetallePeli'
 import DetalleSerie from './components/DetalleSerie/DetalleSerie'
 import './App.css'
+import NotFound from './screens/NotFound/NotFound';
 
 
 function App() {
@@ -19,10 +20,11 @@ function App() {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/favoritos" component={Favoritos} />
-          <Route path="/detallePeli" component={DetallePeli} />
-          <Route path="/detalleSerie" component={DetalleSerie} />
+          <Route path="/detallePeli/:id" component={DetallePeli} />
+          <Route path="/detalleSerie/:id" component={DetalleSerie} />
           <Route path="/peliculasPopulares" component={PeliculasPopulares} />
           <Route path="/seriesPopulares" component={SeriesPopulares} />
+          <Route path="" component={NotFound} />
 
         </Switch>
       </main>
