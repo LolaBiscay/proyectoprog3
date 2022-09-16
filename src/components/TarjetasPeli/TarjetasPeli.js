@@ -13,7 +13,6 @@ class TarjetasPeli extends Component {
       favoritos: false
     };
   };
-
   mostrarDescripcion(){
       if(this.state.claseDescripcion === 'ocultar'){
         this.setState({
@@ -40,7 +39,7 @@ class TarjetasPeli extends Component {
       }
     }
   }
-
+  
   agregarFavoritos(id){
     let Storage = localStorage.getItem('peliculasFavoritas')
 
@@ -59,7 +58,6 @@ class TarjetasPeli extends Component {
       favorito:true
     })
   }
-
   sacarFavoritos(id){
     let Storage = localStorage.getItem('peliculasFavoritas')
     let storageParseado = JSON.parse(Storage) 
@@ -73,29 +71,23 @@ class TarjetasPeli extends Component {
       favorito: false
     })
   }
-
   render(){
     return (
       <article className="pelicula-card">
-
           <img src={`https://image.tmdb.org/t/p/w342/${this.props.image}`} alt="" />
           
           <div className='contenido'>
             <h1><Link className='TituloPeli' to={`/detallePeli/${this.props.id}`}> {this.props.name}</Link></h1>
             <p className={this.state.claseDescripcion}>{this.props.descripcion}</p>
-
             <div className='botonesPeli'>
-              {this.state.favoritos ?
-              <button onClick={() => this.sacarFavoritos(this.props.id)}>Sacar de Favoritos</button>:<button onClick={() => this.agregarFavoritos(this.props.id)} > Agregar a Favoritos</button> }
-              <button onClick={() => this.mostrarDescripcion()}> {this.state.textoDescripcion} </button>
-              <Link to="/detallePeli">
-                <button> <Link className ="" to={`/detallePeli/${this.props.id}`}>Ver Detalle </Link> </button>
-              </Link>
+            <button onClick={() => this.mostrarDescripcion()}> {this.state.textoDescripcion} </button>
+            {this.state.favorito?
+              <button onClick={()=> this.sacarFavoritos(this.props.id) }> Eliminar de favoritos</button>
+              :
+              <button onClick={() => this.agregarFavoritos(this.props.id)} > Agregar a Favoritos</button>
+            }
             </div>
-            
-
           </div>
-
       </article>   
     )
   }

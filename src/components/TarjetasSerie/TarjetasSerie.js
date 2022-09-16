@@ -41,7 +41,6 @@ class TarjetasSerie extends Component {
   
     agregarFavoritos(id){
       let Storage = localStorage.getItem('seriesFavoritas')
-  
       if(Storage === null){
         let array = [id]
         let arrayAString = JSON.stringify(array)
@@ -52,7 +51,6 @@ class TarjetasSerie extends Component {
         let arrayAString = JSON.stringify(arrayParseado)
         localStorage.setItem('seriesFavoritas', arrayAString)
       }
-  
       this.setState({
         favorito:true
       })
@@ -73,24 +71,24 @@ class TarjetasSerie extends Component {
     }
 
     render(){
-        return(
-            <article className='serie-card'>
-            <img src={`https://image.tmdb.org/t/p/w342/${this.props.image}`} alt=""></img>
-            <div className='contenido'>
-                <h1> <Link className='TituloSerie' to={`/detalleSerie/${this.props.id}`}> {this.props.name} </Link> </h1>
-            <p className={this.state.claseDescripcion}>{this.props.descripcion}</p> {/* este deberia solo aparecer si tocamos el Ver mas */}
+      return (
+        <article className="serie-card">
+            <img src={`https://image.tmdb.org/t/p/w342/${this.props.image}`} alt="" />
             
-            <div className='botonesSerie'>
+            <div className='contenido'>
+              <h1><Link className='TituloSerie' to={`/detalleSerie/${this.props.id}`}> {this.props.name}</Link></h1>
+              <p className={this.state.claseDescripcion}>{this.props.descripcion}</p>
+              <div className='botonesSerie'>
               <button onClick={() => this.mostrarDescripcion()}> {this.state.textoDescripcion} </button>
-              <button onClick={() => this.props.agregarFavoritos(this.props.id)} > Agregar a Favoritos</button>
-              <Link to="/detalleSerie">
-                <button> <Link className ="" to={`/detalleSerie/${this.props.id}`}>Ver Detalle </Link> </button>
-              </Link>
+              {this.state.favorito?
+                  <button onClick={()=> this.sacarFavoritos(this.props.id) }> Eliminar de favoritos</button>
+                  :
+                  <button onClick={() => this.agregarFavoritos(this.props.id)} > Agregar a Favoritos</button>
+              }
+              </div>
             </div>
-            </div>
-            </article>
-
-        )
+        </article>   
+      )
     }  
 }
 export default TarjetasSerie
