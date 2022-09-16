@@ -6,6 +6,10 @@
     flex-direction: column;
     color:white
 }
+.peli{
+    display: flex;
+    justify-content: center;
+}
 
 .mostrar{
     display: block;

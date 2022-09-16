@@ -48,6 +48,7 @@ class Detalleserie extends Component{
         console.log(this.state.detalle)
         return(
         <>
+        <div className = "peli">
         {this.state.detalle ?
         <main className="pelicula-card"> 
            <div>
@@ -64,7 +65,7 @@ class Detalleserie extends Component{
                 <button onClick={() => this.agregarFavoritos(this.props.match.params.id)} > Agregar a Favoritos</button>
             </div>
         </main>: <></> }
-        
+        </div>
         </>
         
         )

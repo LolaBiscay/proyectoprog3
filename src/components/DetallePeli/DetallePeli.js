@@ -47,10 +47,13 @@ class Detallepeli extends Component{
         console.log('Este es el state')
         console.log(this.state.detalle)
         return(
+        
         <>
+       <div className="peli">
+             <>
         {this.state.detalle ?
         <main className="pelicula-card"> 
-           <div>
+           <div className="detalle">
                 <img src={`https://image.tmdb.org/t/p/w342/${this.state.detalle.poster_path}`} alt=""></img>
             </div>
             <div>
@@ -62,9 +65,13 @@ class Detallepeli extends Component{
                 <p> {this.state.detalle.overview}</p>
                 <p> Duracion  {this.state.detalle.runtime} minutos</p>
                 <p> Genero {this.state.detalle.genres[1].name}</p>
-                <button onClick={() => this.agregarFavoritos(this.props.match.params.id)} > Agregar a Favoritos</button>
+                <button onClick={() => this.agregarFavoritos(this.props.match.params.id)} > Agregar a Favoritos</button><button onClick={() => this.agregarFavoritos(this.props.match.params.id)} > Agregar a Favoritos</button>
             </div>
         </main>: <></> }
+        
+        </>
+
+        </div>
         
         </>
         
