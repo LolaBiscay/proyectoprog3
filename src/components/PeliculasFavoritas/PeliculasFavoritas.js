@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import TarjetasPeli from "../TarjetasPeli/TarjetasPeli"
-import './PeliculasFavoritas.css'
+import './PeliculasFavoritas'
 
 class PeliculasFavoritas extends Component{
     constructor(props){

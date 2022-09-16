@@ -2,7 +2,9 @@ import React, {Component} from 'react'
 import {Link} from 'react-router-dom'
 import './TarjetasSerie.css'
 
+
 class TarjetasSerie extends Component {
+
     constructor(props){
         super(props)
         this.state={
@@ -24,6 +26,51 @@ class TarjetasSerie extends Component {
       }
     }
 
+    componentDidMount(){
+      let Storage = localStorage.getItem('seriesFavoritas')
+      let storageParseado = JSON.parse(Storage)
+      if(storageParseado !== null){
+        let esFavorita = storageParseado.includes(this.props.id) 
+        if(esFavorita) {
+          this.setState({
+            favorito:true
+          })
+        }
+      }
+    }
+  
+    agregarFavoritos(id){
+      let Storage = localStorage.getItem('seriesFavoritas')
+  
+      if(Storage === null){
+        let array = [id]
+        let arrayAString = JSON.stringify(array)
+        localStorage.setItem('seriesFavoritas', arrayAString)
+      } else {
+        let arrayParseado = JSON.parse(Storage)
+        arrayParseado.push(id)
+        let arrayAString = JSON.stringify(arrayParseado)
+        localStorage.setItem('seriesFavoritas', arrayAString)
+      }
+  
+      this.setState({
+        favorito:true
+      })
+    }
+  
+    sacarFavoritos(id){
+      let Storage = localStorage.getItem('seriesFavoritas')
+      let storageParseado = JSON.parse(Storage) 
+      let filtroStorage = storageParseado.filter(elemento => elemento !== id)
+  
+      let storageAString = JSON.stringify(filtroStorage)
+  
+      localStorage.setItem('seriesFavoritas', storageAString)
+  
+      this.setState({
+        favorito: false
+      })
+    }
 
     render(){
         return(

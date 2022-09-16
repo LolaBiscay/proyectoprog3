@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import TarjetasSerie from '../TarjetasSerie/TarjetasSerie';
-import './SeriesFavoritas.css'
+import './SeriesFavoritas'
 
 class SeriesFavoritas extends Component{
     constructor(props){
