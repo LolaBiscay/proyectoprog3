@@ -76,7 +76,7 @@ class TarjetasPeli extends Component {
 
   render(){
     return (
-      <article className="pelicula1-card">
+      <article className="pelicula-card">
 
           <img src={`https://image.tmdb.org/t/p/w342/${this.props.image}`} alt="" />
           
@@ -89,7 +89,7 @@ class TarjetasPeli extends Component {
               <button onClick={() => this.sacarFavoritos(this.props.id)}>Sacar de Favoritos</button>:<button onClick={() => this.agregarFavoritos(this.props.id)} > Agregar a Favoritos</button> }
               <button onClick={() => this.mostrarDescripcion()}> {this.state.textoDescripcion} </button>
               <Link to="/detallePeli">
-                <button> Ver detalle </button>
+                <button> <Link className ="TituloPeli" to={`/detallePeli/${this.props.id}`}>Ver Detalle </Link> </button>
               </Link>
             </div>
             
