@@ -32,6 +32,16 @@ class Peliculas extends Component {
             data: data.results
         }))
         .catch(err => console.log(err))
+        }else{
+        fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=ec7d1aeea6d41d212821b84124febd74&language=en-US&page=1')
+        .then(resp => resp.json())
+        .then(data => {
+            this.setState({
+            data: data.results.slice(0,4) /*Para que se aparezcan solo 4 pelis*/
+        })})
+        .catch(err => console.log(err))
+            
+
         }
     }
     
