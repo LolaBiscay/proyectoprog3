@@ -45,6 +45,7 @@ class SeriesFavoritas extends Component{
                                 image={element.poster_path}
                                 descripcion={element.overview}
                                 id = {element.id}
+                                agregar = {(id) => this.agregarFavoritos(id)}
                                 />):
                                 <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
                         }

@@ -18,12 +18,12 @@ class Peliculas extends Component {
         .then(resp => resp.json())
         .then(data => {
             this.setState({
-            data: data.results.slice(0,4) /*Para que se aparezcan solo 4 pelis*/
+            data: data.results.slice(0,4) 
         })})
         .catch(err => console.log(err))  
     }
 
-    buscarPeli(titulo){ /*Titulo es lo que escribe el usuario (filtar tirulo linea 51)*/
+    buscarPeli(titulo){ 
         if(titulo !== ''){
         fetch(`https://api.themoviedb.org/3/search/movie?api_key=ec7d1aeea6d41d212821b84124febd74&query=${titulo}`)
         .then(res => res.json())
@@ -36,13 +36,11 @@ class Peliculas extends Component {
         .then(resp => resp.json())
         .then(data => {
             this.setState({
-            data: data.results.slice(0,4) /*Para que se aparezcan solo 4 pelis*/
+            data: data.results.slice(0,4) 
         })})
         .catch(err => console.log(err))
         }
     }
-
-    
 
   render() {
     return (
