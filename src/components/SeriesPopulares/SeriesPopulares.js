@@ -1,6 +1,5 @@
 import React,{Component} from 'react'
 import TarjetasSerie from '../TarjetasSerie/TarjetasSerie';
-import { Link } from 'react-router-dom';
 import './SeriesPopulares.css'
 
 
@@ -45,7 +44,7 @@ class SeriesPopulares extends Component {
                         this.state.data.map((key, idx) => 
                         <TarjetasSerie 
                         key={key + idx} 
-                        name={key.title} 
+                        name={key.name} 
                         image={key.poster_path}
                         descripcion={key.overview}
                         id = {key.id}
