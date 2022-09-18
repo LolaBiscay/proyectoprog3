@@ -22,13 +22,22 @@ class SeriesPopulares extends Component {
         })})
         .catch(err => console.log(err))  
     }
+    cargarMas(){
+        fetch(`https://api.themoviedb.org/3/tv/popular?api_key=ec7d1aeea6d41d212821b84124febd74&language=en-US&page=${this.state.pagina}`)
+        .then(res => res.json())
+        .then(data => this.setState({
+            data: this.state.data.concat(data.results),
+            pagina: this.state.pagina + 1
+        }))
+        .catch(err => console.log(err))
+    }
 
 
   render() {
     return (
     <>
     <div className='series'>
-            <h1 className='encabezadoSerie'> SERIES POPULARES </h1>
+            <h1 className='encabezadoSerie'> TODAS LAS SERIES POPULARES </h1>
 
             <section className="card-container">
                 {      
@@ -46,11 +55,10 @@ class SeriesPopulares extends Component {
 
                 }
             </section>
-            <div>
-                <Link to="/seriesPopulares">
-                    <button className='botonVerTodoSerie'> Ver todo </button>
-                </Link>
+            <div className='boton_card'>
+                <button className='boton' onClick={()=> this.cargarMas()}> Cargar Más </button>
             </div>
+    
         </div>
         
     </>

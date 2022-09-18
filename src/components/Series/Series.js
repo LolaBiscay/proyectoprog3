@@ -24,7 +24,7 @@ class Series extends Component{
             <>
             <div className='series'>
                 <h1 className='encabezadoSerie'> SERIES POPULARES </h1>
-                <section className='card-container'>
+                <section className='card-container-Serie'>
                     {
                         this.state.data.length > 0 ?
                         this.state.data.map((key, idx) => 

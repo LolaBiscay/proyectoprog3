@@ -15,11 +15,11 @@
 }
 
 
-.card-container{
+.card-container-PP{
     display: flex;
     justify-content: center;
     padding: 10px;
-    text-align: center;
+    flex-wrap: wrap;
 }
 
 .TarjetasPeli{

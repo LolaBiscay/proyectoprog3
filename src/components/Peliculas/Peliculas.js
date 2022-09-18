@@ -9,8 +9,7 @@ class Peliculas extends Component {
     constructor(props){
         super(props)
         this.state={
-            data: [],
-            verMas: "hide"
+            data: []
         }
     }
 
@@ -24,7 +23,7 @@ class Peliculas extends Component {
         .catch(err => console.log(err))  
     }
 
-    buscarPeli(titulo){
+    buscarPeli(titulo){ /*Titulo es lo que escribe el usuario (filtar tirulo linea 51)*/
         if(titulo !== ''){
         fetch(`https://api.themoviedb.org/3/search/movie?api_key=ec7d1aeea6d41d212821b84124febd74&query=${titulo}`)
         .then(res => res.json())
@@ -40,23 +39,21 @@ class Peliculas extends Component {
             data: data.results.slice(0,4) /*Para que se aparezcan solo 4 pelis*/
         })})
         .catch(err => console.log(err))
-            
-
         }
     }
+
     
 
   render() {
     return (
     <>
         <div className='peliculas'>
-            <Buscador filtrar={(titulo) => this.buscarPeli(titulo)}/>
-
+            <Buscador filtrar={(titulo) => this.buscarPeli(titulo)}/> 
             <h1 className='encabezadoPeli'> PELÍCULAS POPULARES </h1>
-
-            <section className="card-container">
+            <section className="card-container"> 
+            
                 {      
-                        this.state.data.length > 0 ?
+                        this.state.data.length > 0 ? 
                         this.state.data.map((element, idx) => 
                         <TarjetasPeli 
                         key={element + idx} 
@@ -65,7 +62,8 @@ class Peliculas extends Component {
                         descripcion={element.overview}
                         id = {element.id}
                         agregar = {(id) => this.agregarFavoritos(id)}
-                        />):
+                        />): 
+                        
                         <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
 
                 }

@@ -14,11 +14,6 @@ class TarjetasPeli extends Component {
     };
   };
 
-
-
-
-
-  
   mostrarDescripcion(){
       if(this.state.claseDescripcion === 'ocultar'){
         this.setState({
