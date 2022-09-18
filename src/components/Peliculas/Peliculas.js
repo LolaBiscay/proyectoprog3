@@ -57,13 +57,13 @@ class Peliculas extends Component {
             <section className="card-container">
                 {      
                         this.state.data.length > 0 ?
-                        this.state.data.map((key, idx) => 
+                        this.state.data.map((element, idx) => 
                         <TarjetasPeli 
-                        key={key + idx} 
-                        name={key.title} 
-                        image={key.poster_path}
-                        descripcion={key.overview}
-                        id = {key.id}
+                        key={element + idx} 
+                        name={element.title} 
+                        image={element.poster_path}
+                        descripcion={element.overview}
+                        id = {element.id}
                         agregar = {(id) => this.agregarFavoritos(id)}
                         />):
                         <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>

@@ -13,6 +13,12 @@ class TarjetasPeli extends Component {
       favoritos: false
     };
   };
+
+
+
+
+
+  
   mostrarDescripcion(){
       if(this.state.claseDescripcion === 'ocultar'){
         this.setState({
@@ -83,7 +89,9 @@ class TarjetasPeli extends Component {
             <button onClick={() => this.mostrarDescripcion()}> {this.state.textoDescripcion} </button>
             {this.state.favorito?
               <button onClick={()=> this.sacarFavoritos(this.props.id) }> Eliminar de favoritos</button>
+              
               :
+             
               <button onClick={() => this.agregarFavoritos(this.props.id)} > Agregar a Favoritos</button>
             }
             </div>
