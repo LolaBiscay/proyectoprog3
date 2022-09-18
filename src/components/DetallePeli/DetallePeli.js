@@ -67,7 +67,7 @@ class Detallepeli extends Component{
                 <p> Genero {this.state.detalle.genres[1].name}</p>
                 <button onClick={() => this.agregarFavoritos(this.props.match.params.id)} > Agregar a Favoritos</button><button onClick={() => this.agregarFavoritos(this.props.match.params.id)} > Agregar a Favoritos</button>
             </div>
-        </main>: <></> }
+        </main>: <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div> }
         
         </>
 

@@ -46,7 +46,7 @@ class SeriesFavoritas extends Component{
                                 descripcion={element.overview}
                                 id = {element.id}
                                 />):
-                            <h1>Cargando..</h1>
+                                <div className="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
                         }
                     </section>
                 </div>
